@@ -1,2 +1,0 @@
-# php-mail-test
-testing
