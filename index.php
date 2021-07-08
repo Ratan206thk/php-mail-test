@@ -15,7 +15,7 @@ try {
 
     //Content
     $mail->isSMTP();
-$mail->Host = 'localhost';
+$mail->Host = 'smtp.gnail.com';
 $mail->SMTPAuth = false;
 $mail->SMTPAutoTLS = false; 
 $mail->Port = 25;                              //Set email format to HTML
