@@ -6,7 +6,7 @@ require 'plugins/PHPMailer/src/Exception.php';
 require 'plugins/PHPMailer/src/PHPMailer.php';
 require 'plugins/PHPMailer/src/SMTP.php';
 $mail = new PHPMailer(true);
-$sendmail_path ="/usr/sbin/sendmail -t -i"
+$sendmail_path ="/usr/sbin/sendmail -t -i";
 
 try {
     //Recipients
