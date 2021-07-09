@@ -9,14 +9,12 @@ $mail = new PHPMailer(true);
 // $sendmail_path ="/usr/sbin/sendmail -t -i";
 
 try {
-    //Recipients
-
-    //Content
     $mail->isSMTP();
-$mail->Host = 'smtp.gmail.com';
-$mail->SMTPAuth = false;
-$mail->SMTPAutoTLS = false; 
-$mail->Port = 25;                              //Set email format to HTML
+    $mail->SMTPSecure = 'tls';
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Port = 587;
+    // $mail->SMTPAuth = false;
+    // $mail->SMTPAutoTLS = false;                           //Set email format to HTML
     $mail->Subject = 'Here is the subject';
     $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
