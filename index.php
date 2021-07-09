@@ -48,7 +48,7 @@
 	if ( $mail->send() ) {
 		echo "Email Sent..!";
 	}else{
-		echo "Message could not be sent. Mailer Error: ";
+		echo "Message could not be sent. Mailer Error:{$mail->ErrorInfo}";
 	}
 //Closing smtp connection
 	$mail->smtpClose();
