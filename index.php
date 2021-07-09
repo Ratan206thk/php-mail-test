@@ -13,7 +13,7 @@ try {
 
     //Content
     $mail->isSMTP();
-$mail->Host = 'smtp.gmil.com';
+$mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = false;
 $mail->SMTPAutoTLS = false; 
 $mail->Port = 25;                              //Set email format to HTML
