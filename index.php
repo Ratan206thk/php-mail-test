@@ -1,4 +1,14 @@
 <?php
+/*##########Script Information#########
+  # Purpose: Send mail Using PHPMailer#
+  #          & Gmail SMTP Server 	  #
+  # Created: 24-11-2019 			  #
+  #	Author : Hafiz Haider			  #
+  # Version: 1.0					  #
+  # Website: www.BroExperts.com 	  #
+  #####################################*/
+
+//Include required PHPMailer files
 	require 'src/PHPMailer.php';
 	require 'src/SMTP.php';
 	require 'src/Exception.php';
@@ -37,10 +47,9 @@
 //Finally send email
 	if ( $mail->send() ) {
 		echo "Email Sent..!";
-	} 
-    else {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-    }
+	}else{
+		echo "Message could not be sent. Mailer Error: "{$mail->ErrorInfo};
+	}
 //Closing smtp connection
 	$mail->smtpClose();
 ?>
