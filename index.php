@@ -1,17 +1,7 @@
 <?php
-/*##########Script Information#########
-  # Purpose: Send mail Using PHPMailer#
-  #          & Gmail SMTP Server 	  #
-  # Created: 24-11-2019 			  #
-  #	Author : Hafiz Haider			  #
-  # Version: 1.0					  #
-  # Website: www.BroExperts.com 	  #
-  #####################################*/
-
-//Include required PHPMailer files
-	require 'includes/PHPMailer.php';
-	require 'includes/SMTP.php';
-	require 'includes/Exception.php';
+	require 'src/PHPMailer.php';
+	require 'src/SMTP.php';
+	require 'src/Exception.php';
 //Define name spaces
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\SMTP;
