@@ -1,35 +1,55 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+/*##########Script Information#########
+  # Purpose: Send mail Using PHPMailer#
+  #          & Gmail SMTP Server 	  #
+  # Created: 24-11-2019 			  #
+  #	Author : Hafiz Haider			  #
+  # Version: 1.0					  #
+  # Website: www.BroExperts.com 	  #
+  #####################################*/
 
-require 'plugins/PHPMailer/src/Exception.php';
-require 'plugins/PHPMailer/src/PHPMailer.php';
-require 'plugins/PHPMailer/src/SMTP.php';
-$mail = new PHPMailer(true);
-
-try {
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'smtp.example.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'user@example.com';                     //SMTP username
-    $mail->Password   = 'secret';                               //SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = 465;            
-    $mail->setFrom('from@example.com', 'Mailer');
-    $mail->addAddress('joe@example.net', 'Joe User');     //Add a recipient
-    $mail->addAddress('ellen@example.com');               //Name is optional
-    $mail->addReplyTo('info@example.com', 'Information');
-    $mail->addCC('cc@example.com');
-    $mail->addBCC('bcc@example.com');
-    $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-    $mail->send();
-    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-}
+//Include required PHPMailer files
+	require 'includes/PHPMailer.php';
+	require 'includes/SMTP.php';
+	require 'includes/Exception.php';
+//Define name spaces
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\SMTP;
+	use PHPMailer\PHPMailer\Exception;
+//Create instance of PHPMailer
+	$mail = new PHPMailer();
+//Set mailer to use smtp
+	$mail->isSMTP();
+//Define smtp host
+	$mail->Host = "smtp.gmail.com";
+//Enable smtp authentication
+	$mail->SMTPAuth = true;
+//Set smtp encryption type (ssl/tls)
+	$mail->SMTPSecure = "tls";
+//Port to connect smtp
+	$mail->Port = "587";
+//Set gmail username
+	$mail->Username = "aaryathakur315@gmail.com";
+//Set gmail password
+	$mail->Password = "Sanitary143@$@";
+//Email subject
+	$mail->Subject = "Test email using PHPMailer";
+//Set sender email
+	$mail->setFrom('ratan206thk@gmail.com');
+//Enable HTML
+	$mail->isHTML(true);
+//Attachment
+	// $mail->addAttachment('img/attachment.png');
+//Email body
+	$mail->Body = "<h1>This is HTML h1 Heading</h1></br><p>This is html paragraph</p>";
+//Add recipient
+	$mail->addAddress('nityathakur206@gmail.com');
+//Finally send email
+	if ( $mail->send() ) {
+		echo "Email Sent..!";
+	}else{
+		echo "Message could not be sent. Mailer Error: "{$mail->ErrorInfo};
+	}
+//Closing smtp connection
+	$mail->smtpClose();
 ?>
